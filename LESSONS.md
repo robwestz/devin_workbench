@@ -15,7 +15,7 @@
 
 ## Active
 
-(empty — Devin appends as sessions accumulate)
+2026-05-01 | improvement:setup | PATH-linked workbench scripts must have executable bits in git, otherwise symlinks exist but direct commands fail | Keep `scripts/*.sh` and `.git-templates/hooks/pre-commit` mode 100755; verify with direct command invocation after linking
 
 ---
 
