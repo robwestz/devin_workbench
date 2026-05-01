@@ -257,15 +257,16 @@ PY
 self_test() {
   local tmp
   tmp=$(mktemp -d)
-  DEVIN_SELF_IMPROVE_DIR="$tmp/lab" DEVIN_SELF_IMPROVE_PROFILE_DIR="$tmp/profile" "$0" start
-  DEVIN_SELF_IMPROVE_DIR="$tmp/lab" DEVIN_SELF_IMPROVE_PROFILE_DIR="$tmp/profile" "$0" record "fast smoke" -- true
-  DEVIN_SELF_IMPROVE_DIR="$tmp/lab" DEVIN_SELF_IMPROVE_PROFILE_DIR="$tmp/profile" "$0" record "fast smoke" -- true
-  DEVIN_SELF_IMPROVE_DIR="$tmp/lab" DEVIN_SELF_IMPROVE_PROFILE_DIR="$tmp/profile" "$0" propose >/dev/null
-  DEVIN_SELF_IMPROVE_DIR="$tmp/lab" DEVIN_SELF_IMPROVE_PROFILE_DIR="$tmp/profile" "$0" apply-tier1 >/dev/null
-  test -f "$tmp/lab/telemetry.jsonl" || { echo "FAIL: telemetry.jsonl not found" >&2; rm -rf "$tmp"; exit 1; }
+  DEVIN_SELF_IMPROVE_DIR="$tmp/lab" DEVIN_SELF_IMPROVE_PROFILE_DIR="$tmp/profile" "$0" start || { echo "FAIL: start failed" >&2; rm -rf "$tmp"; exit 1; }
+  DEVIN_SELF_IMPROVE_DIR="$tmp/lab" DEVIN_SELF_IMPROVE_PROFILE_DIR="$tmp/profile" "$0" record "fast smoke" -- true || { echo "FAIL: record failed" >&2; rm -rf "$tmp"; exit 1; }
+  DEVIN_SELF_IMPROVE_DIR="$tmp/lab" DEVIN_SELF_IMPROVE_PROFILE_DIR="$tmp/profile" "$0" record "fast smoke" -- true || { echo "FAIL: record failed" >&2; rm -rf "$tmp"; exit 1; }
+  DEVIN_SELF_IMPROVE_DIR="$tmp/lab" DEVIN_SELF_IMPROVE_PROFILE_DIR="$tmp/profile" "$0" propose >/dev/null || { echo "FAIL: propose failed" >&2; rm -rf "$tmp"; exit 1; }
+  DEVIN_SELF_IMPROVE_DIR="$tmp/lab" DEVIN_SELF_IMPROVE_PROFILE_DIR="$tmp/profile" "$0" apply-tier1 >/dev/null || { echo "FAIL: apply-tier1 failed" >&2; rm -rf "$tmp"; exit 1; }
+  test -s "$tmp/lab/telemetry.jsonl" || { echo "FAIL: telemetry.jsonl empty or not found" >&2; rm -rf "$tmp"; exit 1; }
+  test "$(wc -l < "$tmp/lab/telemetry.jsonl" | tr -d ' ')" -eq 2 || { echo "FAIL: expected 2 telemetry entries" >&2; rm -rf "$tmp"; exit 1; }
   test -f "$tmp/lab/PROPOSALS.md" || { echo "FAIL: PROPOSALS.md not found" >&2; rm -rf "$tmp"; exit 1; }
   test -f "$tmp/profile/90-self-improvement-lab.sh" || { echo "FAIL: profile helper not found" >&2; rm -rf "$tmp"; exit 1; }
-  DEVIN_SELF_IMPROVE_DIR="$tmp/lab" DEVIN_SELF_IMPROVE_PROFILE_DIR="$tmp/profile" "$0" kill >/dev/null
+  DEVIN_SELF_IMPROVE_DIR="$tmp/lab" DEVIN_SELF_IMPROVE_PROFILE_DIR="$tmp/profile" "$0" kill >/dev/null || { echo "FAIL: kill failed" >&2; rm -rf "$tmp"; exit 1; }
   test -f "$tmp/lab/KILLED" || { echo "FAIL: KILLED file not found" >&2; rm -rf "$tmp"; exit 1; }
   test ! -f "$tmp/profile/90-self-improvement-lab.sh" || { echo "FAIL: profile helper not removed" >&2; rm -rf "$tmp"; exit 1; }
   rm -rf "$tmp"
