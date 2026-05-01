@@ -1,0 +1,2 @@
+# shadcn components are added on first use via:
+# pnpm dlx shadcn@latest add <component>

@@ -1,0 +1,20 @@
+# Generated artifacts
+INSTALL_LOG.md.tmp
+IMPROVEMENT_PROPOSAL.md.tmp
+cost-log.jsonl
+observers/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# Build artifacts in templates (when Devin tests them)
+templates/*/node_modules/
+templates/*/.next/
+templates/*/__pycache__/
+templates/*/*.egg-info/

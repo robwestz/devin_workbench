@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+# Global pre-commit hook installed via git init.templateDir.
+# Runs gitleaks + project-specific linters.
+
+set -e
+
+# 1. Gitleaks — block secret commits
+if command -v gitleaks &>/dev/null; then
+  echo "[pre-commit] gitleaks scan..."
+  gitleaks protect --staged --redact 2>&1 | grep -v "INFO" || true
+  if gitleaks protect --staged 2>/dev/null; then
+    :
+  else
+    echo "[pre-commit] gitleaks found potential secrets. Aborting commit."
+    echo "If false positive: add to .gitleaks.toml allowlist or use --no-verify (NOT RECOMMENDED)"
+    exit 1
+  fi
+fi
+
+# 2. Detect project type, run appropriate linters
+if [ -f "pyproject.toml" ]; then
+  echo "[pre-commit] Python project detected"
+  if command -v ruff &>/dev/null; then
+    ruff check --quiet . || { echo "[pre-commit] ruff failed"; exit 1; }
+  fi
+fi
+
+if [ -f "package.json" ]; then
+  echo "[pre-commit] Node project detected"
+  if [ -x "node_modules/.bin/eslint" ]; then
+    pnpm exec eslint --quiet . 2>&1 || { echo "[pre-commit] eslint failed"; exit 1; }
+  fi
+fi
+
+# 3. Conventional commit message check (warn only, don't block)
+# (real check is on commit-msg hook, this is just a heads-up)
+
+echo "[pre-commit] OK"
