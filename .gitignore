@@ -3,6 +3,7 @@ INSTALL_LOG.md.tmp
 IMPROVEMENT_PROPOSAL.md.tmp
 cost-log.jsonl
 observers/
+self-improvement-lab/
 
 # OS
 .DS_Store

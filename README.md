@@ -53,11 +53,15 @@ When Devin starts a session, the snapshot wakes up with everything installed AND
 │   ├── visual-diff.sh           ← Playwright + pixelmatch
 │   ├── acu-track.sh             ← cost telemetry per task
 │   ├── bootstrap-project.sh     ← scaffold new project from template
+│   ├── self-improvement-experiment.sh ← sandboxed recursive-improvement lab
 │   └── verify-snapshot.sh       ← run after snapshot build to verify all layers
 │
 ├── templates/
 │   ├── python-fastapi/          ← scaffold for new Python services
 │   └── nextjs-shadcn/           ← scaffold for new frontend projects
+│
+├── experiments/
+│   └── self-improvement-loop/   ← controlled 14-day self-improvement experiment
 │
 ├── .git-templates/
 │   └── hooks/
