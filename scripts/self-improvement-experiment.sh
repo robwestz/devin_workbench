@@ -262,12 +262,12 @@ self_test() {
   DEVIN_SELF_IMPROVE_DIR="$tmp/lab" DEVIN_SELF_IMPROVE_PROFILE_DIR="$tmp/profile" "$0" record "fast smoke" -- true
   DEVIN_SELF_IMPROVE_DIR="$tmp/lab" DEVIN_SELF_IMPROVE_PROFILE_DIR="$tmp/profile" "$0" propose >/dev/null
   DEVIN_SELF_IMPROVE_DIR="$tmp/lab" DEVIN_SELF_IMPROVE_PROFILE_DIR="$tmp/profile" "$0" apply-tier1 >/dev/null
-  test -f "$tmp/lab/telemetry.jsonl"
-  test -f "$tmp/lab/PROPOSALS.md"
-  test -f "$tmp/profile/90-self-improvement-lab.sh"
+  test -f "$tmp/lab/telemetry.jsonl" || { echo "FAIL: telemetry.jsonl not found" >&2; rm -rf "$tmp"; exit 1; }
+  test -f "$tmp/lab/PROPOSALS.md" || { echo "FAIL: PROPOSALS.md not found" >&2; rm -rf "$tmp"; exit 1; }
+  test -f "$tmp/profile/90-self-improvement-lab.sh" || { echo "FAIL: profile helper not found" >&2; rm -rf "$tmp"; exit 1; }
   DEVIN_SELF_IMPROVE_DIR="$tmp/lab" DEVIN_SELF_IMPROVE_PROFILE_DIR="$tmp/profile" "$0" kill >/dev/null
-  test -f "$tmp/lab/KILLED"
-  test ! -f "$tmp/profile/90-self-improvement-lab.sh"
+  test -f "$tmp/lab/KILLED" || { echo "FAIL: KILLED file not found" >&2; rm -rf "$tmp"; exit 1; }
+  test ! -f "$tmp/profile/90-self-improvement-lab.sh" || { echo "FAIL: profile helper not removed" >&2; rm -rf "$tmp"; exit 1; }
   rm -rf "$tmp"
   echo "self-improvement-experiment self-test OK"
 }
