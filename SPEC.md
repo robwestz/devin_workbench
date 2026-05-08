@@ -116,7 +116,7 @@ See **`SNAPSHOT-BUILD.md`** for the actual install commands.
 
 ## Playbooks
 
-The 6 workflow recipes shipped with the workbench. Each has a markdown file in `playbooks/`:
+The workflow recipes shipped with the workbench. Each has a markdown file in `playbooks/`:
 
 | Playbook | Trigger | Purpose |
 |---|---|---|
@@ -126,8 +126,9 @@ The 6 workflow recipes shipped with the workbench. Each has a markdown file in `
 | **PB-4** | Weekly cron, or "improve yourself" | Self-improvement sweep based on LESSONS.md |
 | **PB-5** | "Watch <url> for <condition>" | Long-running observer task |
 | **PB-6** | "Bootstrap project <name>" | Scaffold new project from blueprint |
+| **PB-7** | "Run visual AI jury on <url>" | Desktop QA + cross-AI product review |
 
-PB-1 is the most-used. PB-2 is the integration point with Larder. PB-4 is what makes the workbench compounding.
+PB-1 is the most-used code gate. PB-2 is the integration point with Larder. PB-4 is what makes the workbench compounding. PB-7 is the "gamechanger" layer: Devin uses its desktop like a human QA lead, then routes evidence through AI reviewers.
 
 ---
 
@@ -135,7 +136,7 @@ PB-1 is the most-used. PB-2 is the integration point with Larder. PB-4 is what m
 
 - No specific projects (those live in `~/projects/`)
 - No vault items (those live in Larder, separate)
-- No experiment harnesses (recursive self-improvement experiment is in a separate experimental branch)
+- No production-grade experiment harnesses without a playbook and kill/rollback path
 - No production deployment infrastructure (CI/CD lives in each project)
 
 ---

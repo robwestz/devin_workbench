@@ -21,7 +21,7 @@ This repo holds:
 - **SNAPSHOT-BUILD.md** — how to build the snapshot
 - **LESSONS.md** — accumulated lessons (most heavily-weighted file)
 - **STYLE.md, STACK_PREFERENCES.md, ANTI_PATTERNS.md** — preferences
-- **playbooks/** — 6 standard workflows
+- **playbooks/** — standard workflows
 - **scripts/** — automation
 - **templates/** — project starters
 - **context/** — this folder
@@ -30,7 +30,7 @@ This repo does NOT hold:
 - The actual snapshot binaries (those live in Devin's machine)
 - Vault items (those live in Larder, separate)
 - Project code (those live in `~/projects/`)
-- Recursive self-improvement experiment (separate branch/repo)
+- Production project code or heavyweight external tool runtimes
 
 ## The bigger picture
 

@@ -44,7 +44,8 @@ When Devin starts a session, the snapshot wakes up with everything installed AND
 │   ├── PB-3-visual-regression.md
 │   ├── PB-4-self-improvement-sweep.md
 │   ├── PB-5-long-running-observer.md
-│   └── PB-6-bootstrap-project.md
+│   ├── PB-6-bootstrap-project.md
+│   └── PB-7-visual-ai-jury.md
 │
 ├── scripts/
 │   ├── three-ai-consensus.sh    ← cross-AI code review
@@ -53,6 +54,7 @@ When Devin starts a session, the snapshot wakes up with everything installed AND
 │   ├── visual-diff.sh           ← Playwright + pixelmatch
 │   ├── acu-track.sh             ← cost telemetry per task
 │   ├── bootstrap-project.sh     ← scaffold new project from template
+│   ├── visual-ai-jury.sh        ← desktop QA packet + AI review prompts
 │   ├── self-improvement-experiment.sh ← sandboxed recursive-improvement lab
 │   └── verify-snapshot.sh       ← run after snapshot build to verify all layers
 │

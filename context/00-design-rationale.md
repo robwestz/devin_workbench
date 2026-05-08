@@ -59,9 +59,9 @@ Considered alternatives:
 
 Markdown won. Format is rigid (`YYYY-MM-DD | tag | observation | mitigation`) so PB-4 can parse, but the rest is freeform.
 
-## Why 6 playbooks (not 3, not 12)
+## Why the playbook set stays small
 
-Each playbook has overhead (file, script, prompt template, mental model). Six is the smallest set that covers the recurring high-value workflows:
+Each playbook has overhead (file, script, prompt template, mental model). The set should stay small and only grow when a workflow is both recurring and uniquely valuable:
 
 - PB-1: code review (used most often)
 - PB-2: adapter generation (Larder integration)
@@ -69,13 +69,14 @@ Each playbook has overhead (file, script, prompt template, mental model). Six is
 - PB-4: self-improvement (the compounding mechanism)
 - PB-5: long-running observer (Devin's unique edge)
 - PB-6: bootstrap project (saves 30 min per project start)
+- PB-7: visual AI jury (Devin's desktop as product QA/control plane)
 
 Considered but rejected:
-- "PB-7: deploy" — too project-specific; lives in CI
+- "deploy playbook" — too project-specific; lives in CI
 - "PB-8: refactor" — too vague; refactor is what reviewers do
 - "PB-9: documentation" — happens via Claude in chat, not Devin
 
-If a 7th playbook becomes needed, PB-4 will surface it.
+Future playbooks should clear the same bar: recurring, bounded, reviewable, and not just a vague task category.
 
 ## Why mise + uv + pnpm (instead of system Python/Node)
 
