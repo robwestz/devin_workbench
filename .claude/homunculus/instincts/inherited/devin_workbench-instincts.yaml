@@ -1,0 +1,337 @@
+# Instincts generated from https://github.com/robwestz/devin_workbench
+# Generated: 2026-05-01T05:06:19.187Z
+# Version: 2.0
+# NOTE: This file supplements (does not replace) any existing curated instincts.
+# High-confidence manually curated instincts should be preserved alongside these.
+
+---
+id: devin_workbench-commit-conventional
+trigger: "when writing a commit message"
+confidence: 0.85
+domain: git
+source: repo-analysis
+source_repo: https://github.com/robwestz/devin_workbench
+---
+
+# Devin_workbench Commit Conventional
+
+## Action
+
+Use conventional commit format with prefixes: feat
+
+## Evidence
+
+- 1 commits analyzed
+- Detected conventional commit pattern
+- Examples: feat: add self-improvement loop experiment
+
+---
+id: devin_workbench-commit-length
+trigger: "when writing a commit message"
+confidence: 0.6
+domain: git
+source: repo-analysis
+source_repo: https://github.com/robwestz/devin_workbench
+---
+
+# Devin_workbench Commit Length
+
+## Action
+
+Keep commit messages concise (~42 characters)
+
+## Evidence
+
+- Average commit message length: 42 chars
+- Based on 1 commits
+
+---
+id: devin_workbench-naming-files
+trigger: "when creating a new file"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/robwestz/devin_workbench
+---
+
+# Devin_workbench Naming Files
+
+## Action
+
+Use PascalCase naming convention
+
+## Evidence
+
+- Analyzed file naming patterns in repository
+- Dominant pattern: PascalCase
+
+---
+id: devin_workbench-import-relative
+trigger: "when importing modules"
+confidence: 0.75
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/robwestz/devin_workbench
+---
+
+# Devin_workbench Import Relative
+
+## Action
+
+Use relative imports for project files
+
+## Evidence
+
+- Import analysis shows relative import pattern
+- Example: import { x } from '../lib/x'
+
+---
+id: devin_workbench-export-style
+trigger: "when exporting from a module"
+confidence: 0.7
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/robwestz/devin_workbench
+---
+
+# Devin_workbench Export Style
+
+## Action
+
+Prefer named exports
+
+## Evidence
+
+- Export pattern analysis
+- Dominant style: named
+
+---
+id: devin_workbench-test-separate
+trigger: "when writing tests"
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/robwestz/devin_workbench
+---
+
+# Devin_workbench Test Separate
+
+## Action
+
+Place tests in the tests/ or __tests__/ directory, mirroring src structure
+
+## Evidence
+
+- Separate test directory pattern detected
+- Tests live in dedicated test folders
+
+---
+id: devin_workbench-instinct-file-naming
+trigger: "When creating a new file"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: robwestz/devin_workbench
+---
+
+# Devin_workbench Instinct File Naming
+
+## Action
+
+Name the file using PascalCase
+
+## Evidence
+
+- Pattern in namingConventions.files
+
+---
+id: devin_workbench-instinct-function-naming
+trigger: "When defining a new function"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: robwestz/devin_workbench
+---
+
+# Devin_workbench Instinct Function Naming
+
+## Action
+
+Use camelCase for the function name
+
+## Evidence
+
+- Pattern in namingConventions.functions
+
+---
+id: devin_workbench-instinct-class-naming
+trigger: "When defining a new class"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: robwestz/devin_workbench
+---
+
+# Devin_workbench Instinct Class Naming
+
+## Action
+
+Use PascalCase for the class name
+
+## Evidence
+
+- Pattern in namingConventions.classes
+
+---
+id: devin_workbench-instinct-constant-naming
+trigger: "When declaring a constant"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: robwestz/devin_workbench
+---
+
+# Devin_workbench Instinct Constant Naming
+
+## Action
+
+Use SCREAMING_SNAKE_CASE for the constant name
+
+## Evidence
+
+- Pattern in namingConventions.constants
+
+---
+id: devin_workbench-instinct-import-style
+trigger: "When importing modules"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: robwestz/devin_workbench
+---
+
+# Devin_workbench Instinct Import Style
+
+## Action
+
+Use relative import paths
+
+## Evidence
+
+- Pattern in importStyle
+
+---
+id: devin_workbench-instinct-export-style
+trigger: "When exporting from a module"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: robwestz/devin_workbench
+---
+
+# Devin_workbench Instinct Export Style
+
+## Action
+
+Use named exports
+
+## Evidence
+
+- Pattern in exportStyle
+
+---
+id: devin_workbench-instinct-git-commit-format
+trigger: "When making a git commit"
+confidence: 0.9
+domain: git
+source: repo-analysis
+source_repo: robwestz/devin_workbench
+---
+
+# Devin_workbench Instinct Git Commit Format
+
+## Action
+
+Format the commit message using the conventional commits format, starting with a 'feat' prefix for features
+
+## Evidence
+
+- Seen in commit: 'feat: add self-improvement loop experiment'
+- Pattern in commits.prefixes
+
+---
+id: devin_workbench-instinct-git-commit-length
+trigger: "When writing a commit message"
+confidence: 0.7
+domain: git
+source: repo-analysis
+source_repo: robwestz/devin_workbench
+---
+
+# Devin_workbench Instinct Git Commit Length
+
+## Action
+
+Keep the commit message concise, averaging around 42 characters
+
+## Evidence
+
+- Pattern in commits.averageLength
+
+---
+id: devin_workbench-instinct-test-location
+trigger: "When adding test files"
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: robwestz/devin_workbench
+---
+
+# Devin_workbench Instinct Test Location
+
+## Action
+
+Place test files in a separate folder from source files
+
+## Evidence
+
+- Pattern in architecture.folderStructure.testLocation
+
+---
+id: devin_workbench-instinct-experiments-folder
+trigger: "When adding experimental code or features"
+confidence: 0.8
+domain: architecture
+source: repo-analysis
+source_repo: robwestz/devin_workbench
+---
+
+# Devin_workbench Instinct Experiments Folder
+
+## Action
+
+Place them in the 'experiments' folder
+
+## Evidence
+
+- Pattern in architecture.folderStructure.commonFolders
+
+---
+id: devin_workbench-instinct-scripts-folder
+trigger: "When adding utility scripts"
+confidence: 0.8
+domain: architecture
+source: repo-analysis
+source_repo: robwestz/devin_workbench
+---
+
+# Devin_workbench Instinct Scripts Folder
+
+## Action
+
+Place them in the 'scripts' folder
+
+## Evidence
+
+- Pattern in architecture.folderStructure.commonFolders
+
