@@ -16,6 +16,8 @@
 ## Active
 
 2026-05-01 | improvement:setup | PATH-linked workbench scripts must have executable bits in git, otherwise symlinks exist but direct commands fail | Keep `scripts/*.sh` and `.git-templates/hooks/pre-commit` mode 100755; verify with direct command invocation after linking
+2026-05-08 | improvement:desktop | Devin's highest-leverage desktop use is as a control plane for visual QA and hosted AI/tool orchestration, not as a GUI IDE or local compute box | Use PB-7 to package browser evidence, console/network notes, recordings, and reviewer prompts before patching product-facing issues
+2026-05-08 | surprise:review | PB-1 depends on reviewer CLIs being present; when `claude`, `codex`, or `ollama` are missing, consensus output can report tool absence instead of actionable code findings | Treat missing reviewer CLIs as environment readiness signals, not code-review findings; verify reviewer availability before trusting PB-1 output
 
 ---
 
