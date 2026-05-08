@@ -46,11 +46,11 @@ sudo apt install -y gh
 
 ---
 
-## Proposal 2: New playbook PB-7 — "deploy preview"
+## Proposal 2: New playbook — "deploy preview"
 
 **Evidence:** 3 lessons describe similar deploy-and-verify-preview workflows.
 
-**Proposed change:** Add `playbooks/PB-7-deploy-preview.md` that combines:
+**Proposed change:** Add a deploy-preview playbook that combines:
 - Vercel/Fly preview deploy
 - PB-3 visual regression vs main
 - Sanity-check console errors
